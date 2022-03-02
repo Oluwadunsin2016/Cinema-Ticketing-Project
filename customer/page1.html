@@ -14,13 +14,14 @@
         }
         
         body {
-            background-image: url(/images/200w-2.gif);
+            background-image: url(../images/kingofboys.png);
             background-repeat: no-repeat;
             background-size: cover;
         }
         
         h1 {
-            color: khaki;
+            color: brown;
+            text-shadow: 3px 1px 1px rgb(45, 45, 107);
             font-family: Arial;
         }
         
@@ -29,11 +30,9 @@
         }
         
         .butt {
-            text-decoration: none;
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
         
         button {
@@ -43,6 +42,11 @@
             background-color: green;
             font-size: 18px;
             border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: rgb(17, 105, 17);
+            cursor: pointer;
         }
     </style>
 </head>
@@ -56,9 +60,10 @@
 
 
     </div>
-    <a href="page2.html" class="butt">
-        <button>NEXT</button>
-    </a>
+    <div class="butt">
+        <button onclick="next()">NEXT</button>
+    </div>
+
 
 
 
@@ -68,6 +73,7 @@
     <script>
         nam = JSON.parse(localStorage.getItem("myName"));
         h.innerHTML = nam;
+        next = () => window.open("http://127.0.0.1:5500/cenima/customer/page2.html");
     </script>
 </body>
 

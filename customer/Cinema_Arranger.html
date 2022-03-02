@@ -23,7 +23,7 @@
         }
         
         label {
-            color: white;
+            color: black;
             font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
             font-size: 20px;
         }
@@ -57,9 +57,9 @@
         <button onclick="request()">Request for chairs</button>
         <input type="text" name="" onkeyup="convert()" id="want" placeholder="No of chairs you want">
         <label for="">Price:</label>
-        <input type="text" name="" id="price" placeholder="one chair is #800"><br><br>
+        <input type="text" name="" id="price" placeholder="one chair is #800" readonly><br><br>
         <label for="">Chairs sent:</label>
-        <input type="text" name="" id="num" placeholder="No of chairs sent" value="0">
+        <input type="text" name="" id="num" placeholder="No of chairs sent" value="0" readonly>
         <button onclick="chairarranger()">Arrange Chairs</button>
         <input type="text" name="" id="row" placeholder="Number of Chairs per row">
     </center><br><br>
@@ -85,6 +85,7 @@
                 Want: want.value,
                 Price: price.value,
             }
+
             localStorage.demand = JSON.stringify(chairWant);
             location.reload();
         }
@@ -99,30 +100,25 @@
         num.value = localStorage.noOfchairs;
 
 
+        let chairses = []
+
         function chairarranger() {
             noOfChair = num.value;
             noPerRow = row.value;
-            cArranged = 0;
-            chair = '<tr>';
-            for (let i = 0; i < noOfChair; i++) {
-                chair += `<td><span>No ${i+1}</span><button onclick="book(${i})"><img id="mark" src="/images/red+cinema+chair.png" alt="" width="200" height="250"></button></td>`;
-                cArranged++;
-                if (cArranged == noPerRow) {
-                    chair += '</tr><tr>';
-                    cArranged = 0;
-                }
+
+            for (let index = 0; index < noOfChair; index++) {
+                chairses.push({
+                    id: index + 1,
+                    user_id: ""
+                })
 
             }
-            chair += '</tr>';
+            localStorage.setItem("perRow", noPerRow);
+            localStorage.setItem("Chairses", JSON.stringify(chairses));
 
-            chr = chair;
-            localStorage.setItem("storeChair", JSON.stringify(chr));
+
 
         }
-        book = (b) => {}
-        var con = `booked by <br> Adekunle`;
-        console.log(con);
-        mark.innerHTML = con;
     </script>
 </body>
 

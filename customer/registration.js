@@ -1,3 +1,12 @@
+show = () => {
+    if (password.type == "password") {
+        password.type = "text"
+    } else {
+        password.type = "password"
+    }
+}
+
+
 function register(event) {
     let response = document.querySelector("#message")
     event.preventDefault()
@@ -41,7 +50,7 @@ function register(event) {
             human.ID = data.length + 1;
             let newData = [...data, human]
             localStorage.setItem("registeredHumans", JSON.stringify(newData))
-            window.open("http://127.0.0.1:5502/customer/login.html")
+            window.open("http://127.0.0.1:5500/cenima/customer/login.html")
         } else if (!localStorage.getItem("registeredHumans")) {
             human.ID = 1;
             localStorage.setItem("registeredHumans", JSON.stringify([human]))
@@ -49,6 +58,15 @@ function register(event) {
 
     }
     location.reload();
+}
+
+
+see = () => {
+    if (loginPassword.type == "password") {
+        loginPassword.type = "text"
+    } else {
+        loginPassword.type = "password"
+    }
 }
 
 function login(event) {
@@ -61,9 +79,10 @@ function login(event) {
         let currentUser = registeredHumans.find((existingUser) => existingUser.EMAIL_ADDRESS == email && existingUser.PASSWORD == password);
         console.log(currentUser);
         if (currentUser) {
-            nam = `${currentUser.SURNAME} ${currentUser.FIRST_NAME}, you're highly welcome to Steven Cinema`;
+            nam = `${currentUser.SURNAME} ${currentUser.FIRST_NAME}, you're highly welcome to Oluwadunsin Cinema`;
+            localStorage.login = currentUser.ID;
             localStorage.setItem("myName", JSON.stringify(nam))
-            window.open(" http://127.0.0.1:5502/customer/page1.html");
+            window.open("http://127.0.0.1:5500/cenima/customer/page1.html");
             return
         } else {
             response.style.color = "red";

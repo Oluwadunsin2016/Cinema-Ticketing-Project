@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="registration-form.css">
     <title>registration-form</title>
 
+    <!-- Fontfaces CSS -->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
 </head>
 
 <body>
@@ -56,8 +62,9 @@
         </div><br> -->
 
         <label for="">Password</label><br>
-        <div class="input">
-            <input type="password" placeholder="Enter your password" id="password">
+        <div class="input" style="display: flex;">
+            <input type="password" id="password" placeholder="Enter your password" style="width: 60%;">
+            <i class="fa fa-eye" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
         </div><br>
         <!-- 
         <div class="input">

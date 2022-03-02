@@ -34,18 +34,53 @@
 
 
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
-
-
-
-
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
     <script type="text/javascript" src="wowjs/wow.min.js"></script>
 
+
+    <style>
+        body {
+            background-image: url(/images/Cinemas-featured-image.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        }
+        
+        table {
+            padding: 50px;
+            background-color: rgba(20, 19, 19, 0.8);
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 2px 5px 10px black;
+            border: none;
+        }
+        
+        td {
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+        }
+        
+        input,
+        select {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            color: white;
+            background-color: transparent;
+        }
+        
+        #passport {
+            height: 200px;
+            width: 150px;
+            /* background-color: #03a9f4; */
+        }
+        /* #nm {
+            width: 100px;
+            height: 50px;
+        } */
+    </style>
 
     <script>
         new WOW().init();
@@ -66,61 +101,6 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
-
-    <style>
-        .cardbox {
-            position: relative;
-            display: grid;
-            width: 100%;
-            padding: 50px;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
-        }
-        
-        .card {
-            position: relative;
-            background: #fff;
-            padding: 20px;
-            display: flex;
-            border-radius: 8px;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-        
-        .cardbox a {
-            color: rgb(117, 115, 115);
-            text-decoration: none;
-        }
-        
-        .card-number {
-            position: relative;
-            font-size: 2em;
-            font-weight: 500;
-        }
-        
-        .card-name {
-            color: #999;
-        }
-        
-        .card-icon {
-            position: relative;
-            font-size: 2.5em;
-            color: #03a9f4;
-        }
-        
-        #notivication {
-            margin: 0 50px;
-            width: 100%;
-        }
-        
-        #not {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: rgb(90, 90, 90);
-            margin-bottom: 20px;
-            font-size: 20px;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -128,14 +108,14 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="admin-profile.html" style="display: flex; align-items: center;">
+                    <a href="admin-profile.html" style="display: flex; align-items: center; background-color: #03a9f4;">
                         <div class="user" style="margin-left: 5px; margin-right: 10px;">
                             <img id="phot" src=" " alt="This is the Image">
                         </div>
                         <span class="title"><h4 style="color: #fff;">Admin Profile</h4></span>
                     </a>
                 </li>
-                <li style="background-color: #03a9f4;">
+                <li>
                     <a href="dashboard.html">
                         <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
                         <span class="title">Dashboard</span>
@@ -180,12 +160,13 @@
             </ul>
         </div>
 
+
         <div class="main">
             <div class="topbar">
                 <div class="toggle" onclick="toggleMenu()"></div>
                 <div class="search">
                     <label>
-                        <input type="text" name="" placeholder="Search here" id="search">
+                        <input type="text" name="" placeholder="Search here" id="">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </label>
                 </div>
@@ -198,56 +179,50 @@
             </div>
 
 
+            <center style="margin-top: 50px;">
+                <table align="center" border="1px" width="65%">
 
-            <div class="cardbox">
-                <a href="customer_list.html" class="card">
-                    <div class="detail">
-                        <div class="card-number" id="cus">0</div>
-                        <div class="card-name">Total Number of customers</div>
-                    </div>
-                    <div class="card-icon">
-                        <i class="fa fa-users" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <a href="staff_list.html" class="card">
-                    <div class="detail">
-                        <div class="card-number" id="st">0</div>
-                        <div class="card-name">Total Number of Staff</div>
-                    </div>
-                    <div class="card-icon">
-                        <i class="fa fa-users text-warning" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <a href="hall_details.html" class="card">
-                    <div class="detail">
-                        <div class="card-number" id="chair">0</div>
-                        <div class="card-name">Number of Chairs requested</div>
-                    </div>
-                    <div class="card-icon">
-                        <img src="../images/red+cinema+chair.png" width="50px" alt="">
-                    </div>
-                </a>
-                <a href="../customer/Cinema_Hall.html" class="card">
-                    <div class="detail">
-                        <div class="card-number" id="booked">0</div>
-                        <div class="card-name">Total number of seats booked</div>
-                    </div>
-                    <div class="card-icon">
-                        <img src="../images/red+cinema+chair.png" width="50px" alt="">
-                    </div>
-                </a>
-            </div>
+                    <!-- <h3>Staff registration</h3> -->
 
-            <div id="notivication">
+                    <tr>
+                        <td>Surname :</td>
+                        <td> <input type="text" name="" id="name1" placeholder="Surname" style="width: 100%;" readonly></td>
+                        <td rowspan="6">
+                            <div id="passport">
+                                <img id="pass" src=" " alt="This is a picture">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>First Name :</td>
+                        <td> <input type="text" name="" id="name2" placeholder="First Name" style="width: 100%;" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Second Name :</td>
+                        <td> <input type="text" name="" id="name3" placeholder="Second Name" style="width: 100%;" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Username :</td>
+                        <td> <input type="text" name="" id="name4" placeholder="Username" style="width: 100%;" readonly></td>
+                    </tr>
 
-            </div>
+                    <tr>
+                        <td>Phone Number :</td>
+                        <td> <input type="number" name="" id="number" placeholder="Phone Number" style="width: 100%;" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Email Address :</td>
+                        <td> <input type="email" name="" id="email" placeholder="Email" style="width: 100%;" readonly></td>
+                    </tr>
 
+                </table>
+            </center>
         </div>
-
     </div>
 
 
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+
+
     <script>
         var sign = localStorage.signIn;
         var admins = JSON.parse(localStorage.getItem('adminReg'))
@@ -255,54 +230,28 @@
         nam.innerHTML = presentAdmin.SURNAME + " " + presentAdmin.FIRST_NAME;
         photo.src = `../images/${presentAdmin.FILE}`;
         phot.src = `../images/${presentAdmin.FILE}`;
+        pass.src = `../images/${presentAdmin.FILE}`;
 
-        let staffs = localStorage.lTUser ? JSON.parse(localStorage.lTUser) : [];
-        st.innerHTML = staffs.length
-
-        let requested = localStorage.demand ? JSON.parse(localStorage.demand) : [];
-        chair.innerHTML = requested.Want;
-
-        let registeredHumans = localStorage.getItem("registeredHumans") ? JSON.parse(localStorage.getItem("registeredHumans")) : [];
-        cus.innerHTML = registeredHumans.length;
-        let Notifications = localStorage.Notifications ? JSON.parse(localStorage.Notifications) : [];
-        let notify;
-        let book;
-        notify = `<div class="search">`
-        for (let i = 0; i < Notifications.length; i++) {
-
-            notify += `<div id="not"><em>${i+1} ${Notifications[i]} </em></div>`
-                // notify += `<br>`
-            book = i + 1
-
-        }
-        notify += '</div>'
-        booked.innerHTML = book
-        notivication.innerHTML = notify
-
+        name1.value = presentAdmin.SURNAME;
+        name2.value = presentAdmin.FIRST_NAME;
+        name3.value = presentAdmin.SECOND_NAME;
+        name4.value = presentAdmin.USERNAME;
+        number.value = presentAdmin.PHONE_NUMBER;
+        email.value = presentAdmin.EMAIL_ADDRESS;
+        pword.value = presentAdmin.PASSWORD;
 
         function out() {
             window.open('http://127.0.0.1:5500/cenima/admin/admin-login.html')
         }
 
-        function toggleMenu() {
-            let toggle = document.querySelector('.toggle');
-            let navigation = document.querySelector('.navigation');
-            let main = document.querySelector('.main');
-            toggle.classList.toggle('active');
-            navigation.classList.toggle('active');
-            main.classList.toggle('active');
-        }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $("#search").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".search").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
+        // function toggleMenu() {
+        //     let toggle = document.querySelector('.toggle');
+        //     let navigation = document.querySelector('.navigation');
+        //     let main = document.querySelector('.main');
+        //     toggle.classList.toggle('active');
+        //     navigation.classList.toggle('active');
+        //     main.classList.toggle('active');
+        // }
     </script>
 </body>
 

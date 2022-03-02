@@ -15,14 +15,15 @@
         }
         
         body {
-            background-image: url(/images/200w-1.gif);
+            background-image: url(../images/types-of-movie-posters-3.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
         
         h1 {
             color: bisque;
-            font-family: Arial;
+            text-shadow: 3px 1px 1px blue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
         
         .container {
@@ -30,36 +31,46 @@
         }
         
         .butt {
-            text-decoration: none;
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
         
         button {
-            border: none;
             color: white;
+            border: none;
             padding: 10px 20px;
             background-color: green;
             font-size: 18px;
             border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: rgb(17, 105, 17);
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
     <marquee behavior="scroll" scrollamount="15" direction="right">
-        <h1>Proceed to the Hall</h1>
+        <h1>Enter and book your seat</h1>
     </marquee>
 
     <div class="container">
 
 
     </div>
-    <a href="page3.html" class="butt">
-        <button>NEXT</button>
-    </a>
+    <div class="butt">
+        <button onclick="enter()">ENTER</button>
+    </div>
+
+
+
+
+    <script>
+        enter = () => window.open("http://127.0.0.1:5500/cenima/customer/Cinema_Hall.html")
+    </script>
 </body>
 
 </html>

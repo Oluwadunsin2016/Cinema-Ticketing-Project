@@ -19,6 +19,10 @@
             background-color: orange;
         }
         
+        #cover {
+            margin: 30px;
+        }
+        
         span {
             color: rgb(245, 240, 240);
             font-family: Georgia, 'Times New Roman', Times, serif;
@@ -33,14 +37,79 @@
     </style>
 </head>
 
-<body>
+<body onload="chairarranger()">
     <table id="hall">
 
     </table>
 
     <script>
-        chairs = JSON.parse(localStorage.getItem('storeChair'));
-        hall.innerHTML = chairs;
+        // chairs = JSON.parse(localStorage.getItem('storeChair'));
+        // hall.innerHTML = chairs;
+
+        var noOfChair = 0;
+        var noPerRow = 0;
+        var chair;
+        var cArranged;
+        let Notifications = localStorage.Notifications ? JSON.parse(localStorage.Notifications) : []
+
+
+        function chairarranger() {
+
+            noOfChair = localStorage.noOfchairs;
+            noPerRow = localStorage.perRow;
+            Chirses = JSON.parse(localStorage.Chairses);
+            Customers = JSON.parse(localStorage.registeredHumans);
+            Login = localStorage.login;
+
+            let useName;
+            cArranged = 0;
+            chair = '<tr>';
+            for (let i = 0; i < noOfChair; i++) {
+
+                if (Chirses[i].user_id) {
+                    let user = Customers.find(element => {
+                        return element.ID == Chirses[i].user_id
+                    })
+                    if (user && user.ID == Chirses[i].user_id) {
+                        useName = user.FIRST_NAME
+                    } else {
+                        useName = ""
+                    }
+                }
+
+                chair += `<td><div id="cover"><span>No ${i+1}</span><button onclick="book(${i})" ${Chirses[i].user_id ? 'disabled=""':""} ><img id="mark" src="../images/red+cinema+chair.png" alt="this is a chair" width="200" height="250"> ${Chirses[i].user_id &&useName ?`<h4 style="font-size:15px;color:white">Booked by ${useName} </h4>` :""} </button></div></td>`;
+                cArranged++;
+                if (cArranged == noPerRow) {
+                    chair += '</tr><tr>';
+                    cArranged = 0;
+                }
+
+            }
+            chair += '</tr>';
+
+            // chr = chair;
+            hall.innerHTML = chair;
+            // localStorage.setItem("storeChair", JSON.stringify(chr));
+
+
+        }
+
+        function book(id) {
+
+            Chirses[id].user_id = Login;
+
+
+            let user = Customers.find(element => {
+                return element.ID == Login
+            })
+
+            Notifications.push(`${user.SURNAME + " " + user.FIRST_NAME} has booked chair number ${Chirses[id].id}`)
+            localStorage.setItem("Chairses", JSON.stringify(Chirses));
+            localStorage.setItem("Notifications", JSON.stringify(Notifications));
+
+
+            location.reload();
+        }
     </script>
 </body>
 

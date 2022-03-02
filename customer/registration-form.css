@@ -7,7 +7,7 @@
 body {
     /* background-color: #384A62; */
     padding: 20px 0px;
-    background-image: url(/images/Cinemas-featured-image.jpg);
+    background-image: url(../images/Cinemas-featured-image.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="registration-form.css">
     <title>Login</title>
 
+    <!-- Fontfaces CSS -->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
     <style>
         body {
-            background-image: url(/images/Cinemas-featured-image.jpg);
+            background-image: url(../images/Cinemas-featured-image.jpg);
             background-repeat: no-repeat;
             background-size: 100% 100vh;
             margin-top: 80px;
@@ -28,21 +34,22 @@
         </div><br>
 
         <label for="">Password</label><br>
-        <div class="input">
-            <input type="password" id="loginPassword" placeholder="Enter your password">
+        <div class="input" style="display: flex;">
+            <input type="password" id="loginPassword " placeholder="Enter your password">
+            <i onclick="see()" class="fa fa-eye " aria-hidden="true " style="font-size: 15px; color: black; "></i>
         </div><br>
 
         <div class="input">
-            <button onclick="login(event)"><a href="" ></a> Submit</button>
+            <button onclick="login(event) "><a href=" " ></a> Submit</button>
         </div>
 
-        <div class="terms">
-            <span>Not have an account? <a href="registration-form.html">Sign Up Here</a></span>
+        <div class="terms ">
+            <span>Not have an account? <a href="registration-form.html ">Sign Up Here</a></span>
         </div>
 
-        <div id="logger"></div>
+        <div id="logger "></div>
     </form>
 </body>
-<script src="registration.js"></script>
+<script src="registration.js "></script>
 
 </html>

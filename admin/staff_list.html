@@ -116,9 +116,11 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                        <span class="title"><h2 style="color: #fff;">Admin Profile</h2></span>
+                    <a href="admin-profile.html" style="display: flex; align-items: center;">
+                        <div class="user" style="margin-left: 5px; margin-right: 10px;">
+                            <img id="phot" src=" " alt="This is the Image">
+                        </div>
+                        <span class="title"><h4 style="color: #fff;">Admin Profile</h4></span>
                     </a>
                 </li>
                 <li>
@@ -158,7 +160,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a onclick="out()">
                         <span class="icon"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
                         <span class="title">Sign-out</span>
                     </a>
@@ -171,12 +173,15 @@
                 <div class="toggle" onclick="toggleMenu()"></div>
                 <div class="search">
                     <label>
-                        <input type="text" name="" placeholder="Search here" id="">
+                        <input type="text" name="" placeholder="Search here" id="search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </label>
                 </div>
-                <div class="user">
-                    <img src="/437_1597513704465 (2).jpg" alt="This is the Image">
+                <div class="cover">
+                    <div id="nam"></div>
+                    <div class="user">
+                        <img id="photo" src=" " alt="This is the Image">
+                    </div>
                 </div>
             </div>
 
@@ -214,7 +219,10 @@
                     <tr>
                         <td>Password :</td>
                         <td>
-                            <input type="password" id="pword" placeholder="Enter your password" style="width: 100%;">
+                            <div style="display: flex;">
+                                <input type="password" id="pword" placeholder="Enter your password" style="width: 60%;">
+                                <i class="fa fa-eye" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
+                            </div>
                         </td>
                     </tr>
                     <tr align="center">
@@ -250,8 +258,25 @@
 
 
 
+    <script src="vendor/jquery-3.2.1.min.js"></script>
 
     <script>
+        show = () => {
+            if (pword.type == "password") {
+                pword.type = "text"
+            } else {
+                pword.type = "password"
+            }
+        }
+
+        var sign = localStorage.signIn;
+        var admins = JSON.parse(localStorage.getItem('adminReg'))
+        presentAdmin = admins.find((existingAdmin) => existingAdmin.ID == sign)
+        nam.innerHTML = presentAdmin.SURNAME + " " + presentAdmin.FIRST_NAME;
+        photo.src = `../images/${presentAdmin.FILE}`;
+        phot.src = `../images/${presentAdmin.FILE}`;
+
+        var editedId;
         var b = '';
         if (window.localStorage.lTUser) {
             staffs = JSON.parse(localStorage.lTUser);
@@ -271,6 +296,7 @@
         }
 
         edit = (e) => {
+            editedId = e;
             document.getElementById("tab").style = "display:none;"
             document.getElementById("table").style = "display:block;"
             staffs = JSON.parse(localStorage.lTUser);
@@ -285,37 +311,52 @@
 
         save = () => {
             // submit = JSON.parse(window.localStorage.getItem("lTUser"));
-            for (let i = 0; i < staffs.length; i++) {
-                var myIndex = i
-                staffs.splice(myIndex, 1, {
-                    SURNAME: name1.value,
-                    FIRST_NAME: name2.value,
-                    SECOND_NAME: name3.value,
-                    USERNAME: name4.value,
-                    PHONE_NUMBER: number.value,
-                    EMAIL_ADDRESS: email.value,
-                    PASSWORD: pword.value,
-                });
-                result = JSON.stringify(staffs);
-                window.localStorage.setItem("lTUser", result);
-                // console.log(staffs);
-                // staffs = JSON.parse(localStorage.lTUser);
-                // for (let i = 0; i < staffs.length; i++) {
 
 
-                // }
-                // // }
-                // localStorage.setItem("lTUser", JSON.stringify(staffs))
+            staffs.splice(editedId, 1, {
+                SURNAME: name1.value,
+                FIRST_NAME: name2.value,
+                SECOND_NAME: name3.value,
+                USERNAME: name4.value,
+                PHONE_NUMBER: number.value,
+                EMAIL_ADDRESS: email.value,
+                PASSWORD: pword.value,
+            });
+            result = JSON.stringify(staffs);
+            window.localStorage.setItem("lTUser", result);
+            // console.log(staffs);
+            // staffs = JSON.parse(localStorage.lTUser);
+            // for (let i = 0; i < staffs.length; i++) {
 
 
-                document.getElementById("tab").style = "display:block;"
-                document.getElementById("table").style = "display:none;"
-                location.reload();
+            // }
+            // // }
+            // localStorage.setItem("lTUser", JSON.stringify(staffs))
 
-            }
+
+            document.getElementById("tab").style = "display:block;"
+            document.getElementById("table").style = "display:none;"
+            location.reload();
+
+
+        }
+
+        function out() {
+            window.open('http://127.0.0.1:5500/cenima/admin/admin-login.html')
         }
     </script>
 </body>
 
 
 </html>
+
+<script>
+    $(document).ready(function() {
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#l tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
