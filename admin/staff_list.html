@@ -105,6 +105,10 @@
         .fa-pencil-alt {
             color: white;
         }
+        
+        #eyeclose {
+            display: none;
+        }
     </style>
 
 </head>
@@ -221,7 +225,8 @@
                         <td>
                             <div style="display: flex;">
                                 <input type="password" id="pword" placeholder="Enter your password" style="width: 60%;">
-                                <i class="fa fa-eye" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
+                                <i class="fa fa-eye-slash" id="eyeopen" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
+                                <i class="fa fa-eye" id="eyeclose" onclick="hide()" aria-hidden="true" style="font-size: 15px;"></i>
                             </div>
                         </td>
                     </tr>
@@ -261,14 +266,6 @@
     <script src="vendor/jquery-3.2.1.min.js"></script>
 
     <script>
-        show = () => {
-            if (pword.type == "password") {
-                pword.type = "text"
-            } else {
-                pword.type = "password"
-            }
-        }
-
         var sign = localStorage.signIn;
         var admins = JSON.parse(localStorage.getItem('adminReg'))
         presentAdmin = admins.find((existingAdmin) => existingAdmin.ID == sign)
@@ -309,6 +306,21 @@
             pword.value = staffs[e].PASSWORD;
         }
 
+
+        show = () => {
+            eyeopen.style = "display: none";
+            eyeclose.style = "display: block";
+            pword.type = "text";
+
+        }
+        hide = () => {
+            eyeopen.style.display = "block";
+            eyeclose.style.display = "none";
+            pword.type = "password"
+
+        }
+
+
         save = () => {
             // submit = JSON.parse(window.localStorage.getItem("lTUser"));
 
@@ -342,7 +354,7 @@
         }
 
         function out() {
-            window.open('http://127.0.0.1:5500/cenima/admin/admin-login.html')
+            window.open('http://127.0.0.1:5502/admin/admin-login.html')
         }
     </script>
 </body>

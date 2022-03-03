@@ -50,7 +50,7 @@ function register(event) {
             human.ID = data.length + 1;
             let newData = [...data, human]
             localStorage.setItem("registeredHumans", JSON.stringify(newData))
-            window.open("http://127.0.0.1:5500/cenima/customer/login.html")
+            window.open("http://127.0.0.1:5502/customer/login.html")
         } else if (!localStorage.getItem("registeredHumans")) {
             human.ID = 1;
             localStorage.setItem("registeredHumans", JSON.stringify([human]))
@@ -82,7 +82,7 @@ function login(event) {
             nam = `${currentUser.SURNAME} ${currentUser.FIRST_NAME}, you're highly welcome to Oluwadunsin Cinema`;
             localStorage.login = currentUser.ID;
             localStorage.setItem("myName", JSON.stringify(nam))
-            window.open("http://127.0.0.1:5500/cenima/customer/page1.html");
+            window.open("http://127.0.0.1:5502/customer/page1.html");
             return
         } else {
             response.style.color = "red";
