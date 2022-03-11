@@ -14,6 +14,36 @@
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
+
+    <style>
+        .see {
+            position: relative;
+            width: 100%;
+        }
+        
+        .see label {
+            position: relative;
+            width: 100%;
+        }
+        
+        .see label input {
+            width: 100%;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.2)
+        }
+        
+        .see label .fa {
+            position: absolute;
+            font-size: 15px;
+            top: 4px;
+            left: 430px;
+        }
+        
+        #eyeclose {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -62,10 +92,22 @@
         </div><br> -->
 
         <label for="">Password</label><br>
-        <div class="input" style="display: flex;">
-            <input type="password" id="password" placeholder="Enter your password" style="width: 60%;">
-            <i class="fa fa-eye" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
+        <div class="see">
+            <label for="">
+            <input type="password" id="password" placeholder="Enter your password">
+            <i class="fa fa-eye" id="eyeclose" onclick="hide()" aria-hidden="true"></i>
+            <i class="fa fa-eye-slash" id="eyeopen" onclick="show()" aria-hidden="true"></i>
+            </label>
         </div><br>
+        <!-- <div class="search">
+            <label>
+                        <input type="text" name="" placeholder="Search here" id="search">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+        </div> -->
+        <!-- <i class="fa fa-eye" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
+        <input type="password" id="password" placeholder="Enter your password" style="width: 60%;"> -->
+
         <!-- 
         <div class="input">
             <input type="password" placeholder="Confirm your password" id="conPassword">
@@ -96,30 +138,5 @@
 
 
 
-
-<!-- Jquery JS-->
-
-<!-- <script src="vendor/jquery-3.2.1.min.js"></script> -->
-<!-- Bootstrap JS-->
-<!-- <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script> -->
-<!-- Vendor JS       -->
-<!-- <script src="vendor/slick/slick.min.js">
-</script>
-<script src="vendor/wow/wow.min.js"></script>
-<script src="vendor/animsition/animsition.min.js"></script>
-<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
-<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="vendor/counter-up/jquery.counterup.min.js">
-</script>
-<script src="vendor/circle-progress/circle-progress.min.js"></script>
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="vendor/select2/select2.min.js"> -->
-<!-- </script> -->
-
-<!-- Main JS-->
-<!-- <script src="js/main.js"></script> -->
 
 </html>

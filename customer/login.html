@@ -21,6 +21,33 @@
             background-size: 100% 100vh;
             margin-top: 80px;
         }
+        
+        .see {
+            position: relative;
+            width: 100%;
+        }
+        
+        .see label {
+            position: relative;
+            width: 100%;
+        }
+        
+        .see label input {
+            width: 100%;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.2)
+        }
+        
+        .see label .fa {
+            position: absolute;
+            font-size: 15px;
+            top: 4px;
+            left: 330px;
+        }
+        
+        #closing {
+            display: none;
+        }
     </style>
 </head>
 
@@ -34,9 +61,12 @@
         </div><br>
 
         <label for="">Password</label><br>
-        <div class="input" style="display: flex;">
+        <div class="see">
+            <label for="">
             <input type="password" id="loginPassword" placeholder="Enter your password">
-            <i onclick="see()" class="fa fa-eye " aria-hidden="true " style="font-size: 15px; color: black; "></i>
+            <i class="fa fa-eye" id="closing" onclick="hid()" aria-hidden="true"></i>
+            <i class="fa fa-eye-slash" id="opening" onclick="shown()" aria-hidden="true"></i>
+            </label>
         </div><br>
 
         <div class="input">
@@ -49,7 +79,9 @@
 
         <div id="logger "></div>
     </form>
+
 </body>
+
 <script src="registration.js "></script>
 
 </html>

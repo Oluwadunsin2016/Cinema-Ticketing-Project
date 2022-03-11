@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <!-- <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all"> -->
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="wowjs/css/libs/animate.css">
+
+
+
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <script type="text/javascript" src="wowjs/wow.min.js"></script>
+
+
+    <style>
+        /* body {
+            background-image: url(../images/Cinemas-featured-image.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        } */
+
+        table {
+            padding: 50px;
+            background-color: rgba(20, 19, 19, 0.8);
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 2px 5px 10px black;
+            border: none;
+        }
+
+        td {
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        input {
+            color: white;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+
+        #but1 {
+            background-color: rgb(7, 153, 92);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            margin-right: 10px;
+        }
+        #but1:hover {
+            background-color: rgb(5, 99, 60);   
+        }
+
+        #but2 {
+            margin-left: 10px;
+            background-color: red;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+        }
+        #but2:hover {
+            background-color: rgb(114, 7, 7);
+        }
+
+        .terms {
+            font-size: 16px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 0px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .terms td a {
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(7, 153, 92);
+        }
+
+        #eyeclose {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="admin-profile.html" style="display: flex; align-items: center; background-color: #03a9f4;">
+                        <div class="user" style="margin-left: 5px; margin-right: 10px;">
+                            <img id="phot" src=" " alt="This is the Image">
+                        </div>
+                        <span class="title">
+                            <h4 style="color: #fff;">Admin Profile</h4>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="staff_registration.html">
+                        <span class="icon"><i class="fa fa-registered" aria-hidden="true"></i></span>
+                        <span class="title">Staff Registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="staff_list.html">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Staff List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="customer_list.html">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Customers List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="hall_details.html">
+                        <span class="icon"><i class="fa fa-hospital-symbol" aria-hidden="true"></i></span>
+                        <span class="title">Hall Details</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                        <span class="title">Setting</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="out()">
+                        <span class="icon"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span>
+                        <span class="title">Sign-out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+                        <input type="text" name="" placeholder="Search here" id="">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div class="cover">
+                    <div id="nam"></div>
+                    <div class="user">
+                        <img id="photo" src=" " alt="This is the Image">
+                    </div>
+                </div>
+            </div>
+
+
+            <center style="margin-top: 50px;">
+                <table align="center" border="1px" width="50%">
+
+                    <!-- <h3>Staff registration</h3> -->
+
+                    <tr>
+                        <td>Surname :</td>
+                        <td> <input type="text" name="" id="name1" placeholder="Enter your Surname"
+                                style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>First Name :</td>
+                        <td> <input type="text" name="" id="name2" placeholder="Enter your First Name"
+                                style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Second Name :</td>
+                        <td> <input type="text" name="" id="name3" placeholder="Enter your Second Name"
+                                style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Username :</td>
+                        <td> <input type="text" name="" id="name4" placeholder="Enter your Username"
+                                style="width: 100%;"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone Number :</td>
+                        <td> <input type="number" name="" id="number" placeholder="Enter your phone number"
+                                style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Email Address :</td>
+                        <td> <input type="email" name="" id="email" placeholder="Enter your email" style="width: 100%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password :</td>
+                        <td>
+                            <div style="display: flex;">
+                                <input type="password" id="pword" placeholder="Enter your password" style="width: 60%;">
+                                <i class="fa fa-eye-slash" id="eyeopen" onclick="show()" aria-hidden="true"
+                                    style="font-size: 15px;"></i>
+                                <i class="fa fa-eye" id="eyeclose" onclick="hide()" aria-hidden="true"
+                                    style="font-size: 15px;"></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="file" name="" id="file">
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2"><button id="but1" onclick="save(event)">Save</button><button id="but2"
+                                onclick="back(event)">Back</button></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+
+        var sign = localStorage.signIn;
+        var admins = JSON.parse(localStorage.getItem('adminReg'))
+        console.log(admins);
+        presentAdmin = admins.find((existingAdmin) => existingAdmin.ID == sign)
+        nam.innerHTML = presentAdmin.SURNAME + " " + presentAdmin.FIRST_NAME;
+        photo.src = `../images/${presentAdmin.FILE}`;
+        phot.src = `../images/${presentAdmin.FILE}`;
+
+        name1.value = presentAdmin.SURNAME;
+        name2.value = presentAdmin.FIRST_NAME;
+        name3.value = presentAdmin.SECOND_NAME;
+        name4.value = presentAdmin.USERNAME;
+        number.value = presentAdmin.PHONE_NUMBER;
+        email.value = presentAdmin.EMAIL_ADDRESS;
+        pword.value = presentAdmin.PASSWORD;
+        // file.value = presentAdmin.FILE;
+
+       
+       
+        show = () => {
+            eyeopen.style = "display: none";
+            eyeclose.style = "display: block";
+            pword.type = "text";
+
+        }
+        hide = () => {
+            eyeopen.style.display = "block";
+            eyeclose.style.display = "none";
+            pword.type = "password"
+
+        }
+
+
+
+        function save(event) {
+            // event.preventDefault();
+
+            let fileNam = file.value;
+            fileNam = fileNam.slice(12);
+           
+            var details = {
+                "SURNAME": name1.value,
+                "FIRST_NAME": name2.value,
+                "SECOND_NAME": name3.value,
+                "USERNAME": name4.value,
+                "ID":presentAdmin.ID,
+                "PHONE_NUMBER": number.value,
+                "EMAIL_ADDRESS": email.value,
+                "PASSWORD": pword.value,
+                "FILE": fileNam
+            };
+
+
+               admins.splice(presentAdmin, 1, details);
+            admin = JSON.stringify(admins);
+            window.localStorage.setItem('adminReg', admin);
+
+
+            window.open('http://127.0.0.1:5502/admin/admin-profile.html');
+
+        }
+back=()=> window.open('http://127.0.0.1:5502/admin/admin-profile.html');
+
+        function out() {
+            window.open('http://127.0.0.1:5502/admin/admin-login.html')
+        }
+
+
+        // function toggleMenu() {
+        //     let toggle = document.querySelector('.toggle');
+        //     let navigation = document.querySelector('.navigation');
+        //     let main = document.querySelector('.main');
+        //     toggle.classList.toggle('active');
+        //     navigation.classList.toggle('active');
+        //     main.classList.toggle('active');
+        // }
+    </script>
+</body>
+
+</html>

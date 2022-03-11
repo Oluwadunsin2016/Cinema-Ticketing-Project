@@ -47,8 +47,9 @@
         }
         
         .inp {
-            height: 25px;
-            width: 200px;
+            margin-left: 10px;
+            height: 30px;
+            width: 250px;
             border-radius: 8px;
             padding-left: 10px;
             font-size: 20px;
@@ -57,11 +58,12 @@
         }
         
         button {
+            margin-left: 10px;
             background: green;
             color: white;
             padding: 5px 10px;
             font-size: 17px;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
         }
     </style>
 
@@ -144,10 +146,9 @@
 
 
             <center style="margin-top: 30px;">
-                <label for="" class="lab">No of chairs demanded : </label><input type="text" name="" id="demanded" class="inp" readonly>
-                <label for="" class="lab">Price of the chairs : </label><input type="text" name="" id="price" class="inp" readonly><br><br>
                 <div style="display: flex; justify-content: center;">
-                    <button onclick="send()">Send</button><input type="text" name="" id="n" placeholder="send chairs" class="inp" style="border-radius: 0 8px 8px 0; height: 30px;">
+                    <button onclick="visit()">Visit Hall</button>
+                    <input type="text" name="" id="num" placeholder="Total number of chairs" class="inp" style="border-radius: 8px; height: 30px;"><input type="text" name="" id="row" class="inp" placeholder="Number of Chairs per row"><button onclick="chairarranger()">Arrange Chairs</button>
                 </div>
             </center>
 
@@ -170,15 +171,43 @@
         phot.src = `../images/${presentAdmin.FILE}`;
 
 
-        var requested = JSON.parse(localStorage.demand);
-        demanded.value = requested.Want;
-        price.value = requested.Price;
+        // var requested = JSON.parse(localStorage.demand);
+        // demanded.value = requested.Want;
+        // price.value = requested.Price;
 
-        function send() {
-            var b = n.value;
-            localStorage.noOfchairs = b;
+
+
+        var noOfChair = 0;
+        var noPerRow = 0;
+        var chair;
+        var cArranged;
+
+
+
+
+
+        function chairarranger() {
+            let chairses = []
+            noOfChair = num.value;
+            noPerRow = row.value;
+
+            for (let index = 0; index < noOfChair; index++) {
+                chairses.push({
+                    id: index + 1,
+                    user_id: ""
+                })
+
+            }
+            localStorage.setItem("noOfchairs", noOfChair);
+            localStorage.setItem("perRow", noPerRow);
+            localStorage.setItem("Chairses", JSON.stringify(chairses));
+
+
             location.reload();
         }
+
+        var visit = () => window.open("http://127.0.0.1:5502/customer/Cinema_Hall.html")
+
 
         function out() {
             window.open('http://127.0.0.1:5502/admin/admin-login.html')

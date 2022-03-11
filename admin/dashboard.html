@@ -221,7 +221,7 @@
                 <a href="hall_details.html" class="card">
                     <div class="detail">
                         <div class="card-number" id="chair">0</div>
-                        <div class="card-name">Number of Chairs requested</div>
+                        <div class="card-name">Number of Chairs sent</div>
                     </div>
                     <div class="card-icon">
                         <img src="../images/red+cinema+chair.png" width="50px" alt="">
@@ -259,8 +259,8 @@
         let staffs = localStorage.lTUser ? JSON.parse(localStorage.lTUser) : [];
         st.innerHTML = staffs.length
 
-        let requested = localStorage.demand ? JSON.parse(localStorage.demand) : [];
-        chair.innerHTML = requested.Want;
+        chair.innerHTML = localStorage.noOfchairs;
+
 
         let registeredHumans = localStorage.getItem("registeredHumans") ? JSON.parse(localStorage.getItem("registeredHumans")) : [];
         cus.innerHTML = registeredHumans.length;

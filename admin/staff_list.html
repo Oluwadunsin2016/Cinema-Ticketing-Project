@@ -41,7 +41,7 @@
             background-repeat: no-repeat;
             background-size: 100% 100vh;
         }
-        
+
         #table {
             padding: 50px;
             background-color: rgba(20, 19, 19, 0.8);
@@ -49,27 +49,48 @@
             border: none;
             display: none;
         }
-        
+
         #table td {
             color: white;
             border: none;
             padding: 10px 15px;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+
         #table input,
         #table select {
             color: white;
             background-color: transparent;
         }
-        
-        #table button {
+
+        #but1 {
             background-color: rgb(7, 153, 92);
             color: white;
             padding: 8px 14px;
             border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
+            border: none;
+            margin-right: 10px;
+        }
+
+        #but1:hover {
+            background-color: rgb(5, 99, 60);
+        }
+
+        #but2 {
+            margin-left: 10px;
+            background-color: red;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+        }
+
+        #but2:hover {
+            background-color: rgb(114, 7, 7);
         }
     </style>
 
@@ -80,7 +101,7 @@
             background-repeat: no-repeat;
             background-size: 100% 100vh;
         }
-        
+
         #tab {
             /* margin-top: 40px; */
             padding: 20px;
@@ -92,7 +113,7 @@
             border: none;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+
         #tab td,
         #tab button {
             color: rgb(224, 222, 222);
@@ -101,11 +122,11 @@
             padding: 20px 10px;
             text-align: center;
         }
-        
+
         .fa-pencil-alt {
             color: white;
         }
-        
+
         #eyeclose {
             display: none;
         }
@@ -124,7 +145,9 @@
                         <div class="user" style="margin-left: 5px; margin-right: 10px;">
                             <img id="phot" src=" " alt="This is the Image">
                         </div>
-                        <span class="title"><h4 style="color: #fff;">Admin Profile</h4></span>
+                        <span class="title">
+                            <h4 style="color: #fff;">Admin Profile</h4>
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -197,41 +220,50 @@
 
                     <tr>
                         <td>Surname :</td>
-                        <td> <input type="text" name="" id="name1" placeholder="Enter your Surname" style="width: 100%;"></td>
+                        <td> <input type="text" name="" id="name1" placeholder="Enter your Surname"
+                                style="width: 100%;"></td>
                     </tr>
                     <tr>
                         <td>First Name :</td>
-                        <td> <input type="text" name="" id="name2" placeholder="Enter your First Name" style="width: 100%;"></td>
+                        <td> <input type="text" name="" id="name2" placeholder="Enter your First Name"
+                                style="width: 100%;"></td>
                     </tr>
                     <tr>
                         <td>Second Name :</td>
-                        <td> <input type="text" name="" id="name3" placeholder="Enter your Second Name" style="width: 100%;"></td>
+                        <td> <input type="text" name="" id="name3" placeholder="Enter your Second Name"
+                                style="width: 100%;"></td>
                     </tr>
                     <tr>
                         <td>Username :</td>
-                        <td> <input type="text" name="" id="name4" placeholder="Enter your Username" style="width: 100%;"></td>
+                        <td> <input type="text" name="" id="name4" placeholder="Enter your Username"
+                                style="width: 100%;"></td>
                     </tr>
 
                     <tr>
                         <td>Phone Number :</td>
-                        <td> <input type="number" name="" id="number" placeholder="Enter your phone number" style="width: 100%;"></td>
+                        <td> <input type="number" name="" id="number" placeholder="Enter your phone number"
+                                style="width: 100%;"></td>
                     </tr>
                     <tr>
                         <td>Email Address :</td>
-                        <td> <input type="email" name="" id="email" placeholder="Enter your email" style="width: 100%;"></td>
+                        <td> <input type="email" name="" id="email" placeholder="Enter your email" style="width: 100%;">
+                        </td>
                     </tr>
                     <tr>
                         <td>Password :</td>
                         <td>
                             <div style="display: flex;">
                                 <input type="password" id="pword" placeholder="Enter your password" style="width: 60%;">
-                                <i class="fa fa-eye-slash" id="eyeopen" onclick="show()" aria-hidden="true" style="font-size: 15px;"></i>
-                                <i class="fa fa-eye" id="eyeclose" onclick="hide()" aria-hidden="true" style="font-size: 15px;"></i>
+                                <i class="fa fa-eye-slash" id="eyeopen" onclick="show()" aria-hidden="true"
+                                    style="font-size: 15px;"></i>
+                                <i class="fa fa-eye" id="eyeclose" onclick="hide()" aria-hidden="true"
+                                    style="font-size: 15px;"></i>
                             </div>
                         </td>
                     </tr>
                     <tr align="center">
-                        <td colspan="2"><button onclick="save()">Save</button></td>
+                        <td colspan="2"><button id="but1" onclick="save()">Save</button><button id="but2"
+                                onclick="back()">Back</button></td>
                     </tr>
 
                     <div class="response"></div>
@@ -279,7 +311,7 @@
             staffs = JSON.parse(localStorage.lTUser);
             for (i = 0; i < staffs.length; i++) {
 
-                b += `<tr><td> ${i+1} </td><td> ${staffs[i].SURNAME} </td><td> ${staffs[i].FIRST_NAME} </td><td> ${staffs[i].PHONE_NUMBER} </td><td> ${staffs[i].EMAIL_ADDRESS} </td><td align="center "><a href="#"><i class="fa fa-pencil-alt text-success" onclick="edit(${i})"></i></a></td><td align="center"><i class="fa fa-trash-alt bg-danger text-white btn" onclick="del(${i})"></i></td></tr>`;
+                b += `<tr><td> ${i + 1} </td><td> ${staffs[i].SURNAME} </td><td> ${staffs[i].FIRST_NAME} </td><td> ${staffs[i].PHONE_NUMBER} </td><td> ${staffs[i].EMAIL_ADDRESS} </td><td align="center "><a href="#"><i class="fa fa-pencil-alt text-success" onclick="edit(${i})"></i></a></td><td align="center"><i class="fa fa-trash-alt bg-danger text-white btn" onclick="del(${i})"></i></td></tr>`;
             }
             document.getElementById('l').innerHTML = b;
         }
@@ -322,7 +354,6 @@
 
 
         save = () => {
-            // submit = JSON.parse(window.localStorage.getItem("lTUser"));
 
 
             staffs.splice(editedId, 1, {
@@ -336,21 +367,17 @@
             });
             result = JSON.stringify(staffs);
             window.localStorage.setItem("lTUser", result);
-            // console.log(staffs);
-            // staffs = JSON.parse(localStorage.lTUser);
-            // for (let i = 0; i < staffs.length; i++) {
-
-
-            // }
-            // // }
-            // localStorage.setItem("lTUser", JSON.stringify(staffs))
-
-
+        
             document.getElementById("tab").style = "display:block;"
             document.getElementById("table").style = "display:none;"
             location.reload();
 
 
+        }
+        function back() {
+            document.getElementById("tab").style = "display:block;"
+            document.getElementById("table").style = "display:none;"
+            location.reload();
         }
 
         function out() {
@@ -363,10 +390,10 @@
 </html>
 
 <script>
-    $(document).ready(function() {
-        $("#search").on("keyup", function() {
+    $(document).ready(function () {
+        $("#search").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#l tr").filter(function() {
+            $("#l tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });

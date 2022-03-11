@@ -1,11 +1,15 @@
 show = () => {
-    if (password.type == "password") {
-        password.type = "text"
-    } else {
-        password.type = "password"
-    }
-}
+    eyeopen.style = "display: none";
+    eyeclose.style = "display: block";
+    password.type = "text";
 
+}
+hide = () => {
+    eyeopen.style.display = "block";
+    eyeclose.style.display = "none";
+    password.type = "password"
+
+}
 
 function register(event) {
     let response = document.querySelector("#message")
@@ -60,13 +64,18 @@ function register(event) {
     location.reload();
 }
 
+function shown() {
+    opening.style = "display: none";
+    closing.style = "display: block";
+    loginPassword.type = "text";
 
-see = () => {
-    if (loginPassword.type == "password") {
-        loginPassword.type = "text"
-    } else {
-        loginPassword.type = "password"
-    }
+}
+
+function hid() {
+    opening.style.display = "block";
+    closing.style.display = "none";
+    loginPassword.type = "password"
+
 }
 
 function login(event) {
